@@ -1,0 +1,46 @@
+name: Deploy to Kubernetes
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure kubectl
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        run: |
+          echo "$KUBE_CONFIG_DATA" | base64 --decode > kubeconfig.yaml
+          kubectl config view --kubeconfig=kubeconfig.yaml
+
+      - name: Debug kubeconfig
+        run: |
+          cat kubeconfig.yaml
+
+      - name: Verify connectivity
+        run: |
+          kubectl get nodes --kubeconfig=kubeconfig.yaml
+
+      - name: Build and push Docker image
+        env:
+          DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+          DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        run: |
+          docker build -t tomicampos22/mapainteractivo:latest .
+          echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USERNAME --password-stdin
+          docker push tomicampos22/mapainteractivo:latest
+
+      - name: Create namespace if not exists
+        run: |
+          kubectl create namespace mundose || true
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f deployment.yaml --namespace=mundose --validate=false --kubeconfig=kubeconfig.yaml
