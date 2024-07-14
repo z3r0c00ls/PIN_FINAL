@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: mapa-interactivo
+spec:
+  hosts:
+  - "ae1c7222ebd7645fea553e9db4e89113-1992403997.us-east-1.elb.amazonaws.com" # Debe coincidir con el host definido en el Gateway
+  gateways:
+  - mapa-interactivo-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /mapa-interactivo
+    route:
+    - destination:
+        host: mapa-interactivo
+        port:
+          number: 80
+
