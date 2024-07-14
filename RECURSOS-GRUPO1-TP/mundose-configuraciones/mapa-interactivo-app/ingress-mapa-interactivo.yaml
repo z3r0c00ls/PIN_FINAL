@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mapa-interactivo-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /mapa-interactivo
+        pathType: Prefix
+        backend:
+          service:
+            name: mapa-interactivo-service
+            port:
+              number: 80
+

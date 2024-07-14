@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mapa-interactivo-deployment
+  labels:
+    app: mapa-interactivo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mapa-interactivo
+  template:
+    metadata:
+      labels:
+        app: mapa-interactivo
+    spec:
+      containers:
+      - name: mapa-interactivo
+        image: mapa-interactivo
+        ports:
+        - containerPort: 80
+

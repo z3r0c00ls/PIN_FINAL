@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: mapa-interactivo-gateway
+spec:
+  selector:
+    istio: ingressgateway # Usa el controlador de ingress de Istio
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "ae1c7222ebd7645fea553e9db4e89113-1992403997.us-east-1.elb.amazonaws.com" # Reemplaza con el dominio que utilizarás
+
