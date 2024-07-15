@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-07-15T03:59:13.870Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="Lu84qxrwRh-EnAK0SH2n" version="24.6.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-07-15T04:01:22.840Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="yC0bAQe7V6faOmrRBGml" version="24.6.5" type="github">
   <diagram name="Página-1" id="yk_hr7xOjnAvsSuyqYRH">
     <mxGraphModel dx="1434" dy="699" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
       <root>
@@ -150,6 +150,14 @@
         </mxCell>
         <mxCell id="yH9ZbJkYZtCMmAP_qCWo-62" value="Classic Load Balancer" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.classic_load_balancer;" vertex="1" parent="1">
           <mxGeometry x="350" y="515" width="80" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="yH9ZbJkYZtCMmAP_qCWo-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.538;entryY=0.009;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" edge="1" parent="1" source="yH9ZbJkYZtCMmAP_qCWo-6" target="yH9ZbJkYZtCMmAP_qCWo-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yH9ZbJkYZtCMmAP_qCWo-65" value="HTTP:80:APPS" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1;fontColor=#67AB9F;" vertex="1" connectable="0" parent="yH9ZbJkYZtCMmAP_qCWo-64">
+          <mxGeometry x="0.0762" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
